@@ -3,6 +3,9 @@
   "setOfFinalStates": [
     "A", "B"
   ],
+  "alphabet": [
+    "a", "b"
+  ],
   "moveFunctions": [
     {
       "from": "0:0",
