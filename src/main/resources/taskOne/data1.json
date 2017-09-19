@@ -1,0 +1,286 @@
+{
+  "startState": [
+    "0:0"
+  ],
+  "setOfFinalStates": [
+    "A", "B"
+  ],
+  "alphabet": [
+    "a", "b"
+  ],
+  "moveFunctions": [
+    {
+      "from": "0:0",
+      "to": [
+        {
+          "signal": "a",
+          "newState": "15:0"
+        },
+        {
+          "signal": "b",
+          "newState": "0:15"
+        }
+      ]
+    },
+    {
+      "from": "15:0",
+      "to": [
+        {
+          "signal": "a",
+          "newState": "30:0"
+        },
+        {
+          "signal": "b",
+          "newState": "15:15"
+        }
+      ]
+    },
+    {
+      "from": "30:0",
+      "to": [
+        {
+          "signal": "a",
+          "newState": "40:0"
+        },
+        {
+          "signal": "b",
+          "newState": "30:15"
+        }
+      ]
+    },
+    {
+      "from": "40:0",
+      "to": [
+        {
+          "signal": "a",
+          "newState": "A"
+        },
+        {
+          "signal": "b",
+          "newState": "40:15"
+        }
+      ]
+    },
+    {
+      "from": "0:15",
+      "to": [
+        {
+          "signal": "a",
+          "newState": "15:15"
+        },
+        {
+          "signal": "b",
+          "newState": "0:30"
+        }
+      ]
+    },
+    {
+      "from": "0:30",
+      "to": [
+        {
+          "signal": "a",
+          "newState": "15:30"
+        },
+        {
+          "signal": "b",
+          "newState": "0:40"
+        }
+      ]
+    },
+    {
+      "from": "0:40",
+      "to": [
+        {
+          "signal": "a",
+          "newState": "15:40"
+        },
+        {
+          "signal": "b",
+          "newState": "B"
+        }
+      ]
+    },
+    {
+      "from": "15:15",
+      "to": [
+        {
+          "signal": "a",
+          "newState": "30:15"
+        },
+        {
+          "signal": "b",
+          "newState": "15:30"
+        }
+      ]
+    },
+    {
+      "from": "15:30",
+      "to": [
+        {
+          "signal": "a",
+          "newState": "30:30"
+        },
+        {
+          "signal": "b",
+          "newState": "15:40"
+        }
+      ]
+    },
+    {
+      "from": "30:15",
+      "to": [
+        {
+          "signal": "a",
+          "newState": "40:15"
+        },
+        {
+          "signal": "b",
+          "newState": "30:30"
+        }
+      ]
+    },
+    {
+      "from": "40:15",
+      "to": [
+        {
+          "signal": "a",
+          "newState": "A"
+        },
+        {
+          "signal": "b",
+          "newState": "40:30"
+        }
+      ]
+    },
+    {
+      "from": "15:40",
+      "to": [
+        {
+          "signal": "a",
+          "newState": "30:40"
+        },
+        {
+          "signal": "b",
+          "newState": "B"
+        }
+      ]
+    },
+    {
+      "from": "30:40",
+      "to": [
+        {
+          "signal": "a",
+          "newState": "="
+        },
+        {
+          "signal": "b",
+          "newState": "B"
+        }
+      ]
+    },
+    {
+      "from": "40:30",
+      "to": [
+        {
+          "signal": "a",
+          "newState": "A"
+        },
+        {
+          "signal": "b",
+          "newState": "="
+        }
+      ]
+    },
+    {
+      "from": "30:30",
+      "to": [
+        {
+          "signal": "a",
+          "newState": "40:30"
+        },
+        {
+          "signal": "b",
+          "newState": "30:40"
+        }
+      ]
+    },
+    {
+      "from": "=",
+      "to": [
+        {
+          "signal": "a",
+          "newState": "a>"
+        },
+        {
+          "signal": "b",
+          "newState": "b>"
+        }
+      ]
+    },
+    {
+      "from": "a>",
+      "to": [
+        {
+          "signal": "a",
+          "newState": "A"
+        },
+        {
+          "signal": "b",
+          "newState": "="
+        }
+      ]
+    },
+    {
+      "from": "b>",
+      "to": [
+        {
+          "signal": "a",
+          "newState": "="
+        },
+        {
+          "signal": "b",
+          "newState": "B"
+        }
+      ]
+    },
+    {
+      "from": "A",
+      "to": [
+        {
+          "signal": "a",
+          "newState": "tmp"
+        },
+        {
+          "signal": "b",
+          "newState": "tmp"
+        }
+      ]
+    },
+    {
+      "from": "B",
+      "to": [
+        {
+          "signal": "a",
+          "newState": "tmp"
+        },
+        {
+          "signal": "b",
+          "newState": "tmp"
+        }
+      ]
+    },
+    {
+      "from": "tmp",
+      "to": [
+        {
+          "signal": "a",
+          "newState": "tmp"
+        },
+        {
+          "signal": "b",
+          "newState": "tmp"
+        }
+      ]
+    }
+  ]
+}

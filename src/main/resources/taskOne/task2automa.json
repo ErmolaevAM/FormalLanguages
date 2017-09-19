@@ -1,0 +1,458 @@
+{
+  "startState": [
+  	"0:0", "4:4"
+  ],
+  "setOfFinalStates": [
+    "0:0", "0:4", "4:0", "4:4"
+  ],
+  "alphabet": [
+    "u", "d", "r", "l"
+  ],
+  "moveFunctions": [
+    {
+      "from": "0:0",
+      "to": [
+        {
+          "signal": "r",
+          "newState": "1:0"
+        },
+        {
+          "signal": "d",
+          "newState": "0:1"
+        }
+      ]
+    },
+    {
+      "from": "1:0",
+      "to": [
+        {
+          "signal": "r",
+          "newState": "2:0"
+        },
+        {
+          "signal": "d",
+          "newState": "1:1"
+        },
+        {
+          "signal": "l",
+          "newState": "0:0"
+        }
+      ]
+    },
+    {
+      "from": "2:0",
+      "to": [
+        {
+          "signal": "r",
+          "newState": "3:0"
+        },
+        {
+          "signal": "d",
+          "newState": "2:1"
+        },
+        {
+          "signal": "l",
+          "newState": "1:1"
+        }
+      ]
+    },
+    {
+      "from": "3:0",
+      "to": [
+        {
+          "signal": "r",
+          "newState": "4:0"
+        },
+        {
+          "signal": "d",
+          "newState": "3:1"
+        },
+        {
+          "signal": "l",
+          "newState": "2:0"
+        }
+      ]
+    },
+    {
+      "from": "4:0",
+      "to": [
+        {
+          "signal": "l",
+          "newState": "3:0"
+        },
+        {
+          "signal": "d",
+          "newState": "4:1"
+        }
+      ]
+    },
+    {
+      "from": "0:1",
+      "to": [
+        {
+          "signal": "r",
+          "newState": "1:1"
+        },
+        {
+          "signal": "d",
+          "newState": "0:2"
+        },
+        {
+       	  "signal": "u",
+       	  "newState": "0:0"
+        }
+      ]
+    },
+    {
+      "from": "1:1",
+      "to": [
+        {
+          "signal": "u",
+          "newState": "1:0"
+        },
+        {
+          "signal": "d",
+          "newState": "1:2"
+        },
+        {
+       	  "signal": "r",
+       	  "newState": "2:1"
+        },
+        {
+          "signal": "l",
+          "newState": "0:1"
+        }
+      ]
+    },
+    {
+      "from": "2:1",
+      "to": [
+        {
+          "signal": "u",
+          "newState": "2:0"
+        },
+        {
+          "signal": "d",
+          "newState": "2:2"
+        },
+        {
+       	  "signal": "r",
+       	  "newState": "3:1"
+        },
+        {
+          "signal": "l",
+          "newState": "1:1"
+        }
+      ]
+    },
+    {
+      "from": "3:1",
+      "to": [
+        {
+          "signal": "u",
+          "newState": "3:0"
+        },
+        {
+          "signal": "d",
+          "newState": "3:2"
+        },
+        {
+       	  "signal": "r",
+       	  "newState": "4:1"
+        },
+        {
+          "signal": "l",
+          "newState": "2:1"
+        }
+      ]
+    },
+    {
+      "from": "4:1",
+      "to": [
+        {
+          "signal": "u",
+          "newState": "4:0"
+        },
+        {
+          "signal": "d",
+          "newState": "4:2"
+        },
+        {
+          "signal": "l",
+          "newState": "3:1"
+        }
+      ]
+    },
+    {
+      "from": "0:2",
+      "to": [
+        {
+          "signal": "u",
+          "newState": "0:1"
+        },
+        {
+          "signal": "d",
+          "newState": "0:3"
+        },
+        {
+       	  "signal": "r",
+       	  "newState": "1:2"
+        }
+      ]
+    },
+    {
+      "from": "1:2",
+      "to": [
+        {
+          "signal": "u",
+          "newState": "1:1"
+        },
+        {
+          "signal": "d",
+          "newState": "1:3"
+        },
+        {
+       	  "signal": "r",
+       	  "newState": "2:2"
+        },
+        {
+          "signal": "l",
+          "newState": "0:2"
+        }
+      ]
+    },
+    {
+      "from": "2:2",
+      "to": [
+        {
+          "signal": "u",
+          "newState": "2:1"
+        },
+        {
+          "signal": "d",
+          "newState": "2:3"
+        },
+        {
+       	  "signal": "r",
+       	  "newState": "3:2"
+        },
+        {
+          "signal": "l",
+          "newState": "1:2"
+        }
+      ]
+    },
+    {
+      "from": "3:2",
+      "to": [
+        {
+          "signal": "u",
+          "newState": "3:1"
+        },
+        {
+          "signal": "d",
+          "newState": "3:3"
+        },
+        {
+       	  "signal": "r",
+       	  "newState": "4:2"
+        },
+        {
+          "signal": "l",
+          "newState": "2:2"
+        }
+      ]
+    },
+    {
+      "from": "4:2",
+      "to": [
+        {
+          "signal": "u",
+          "newState": "4:1"
+        },
+        {
+          "signal": "d",
+          "newState": "4:3"
+        },
+        {
+          "signal": "l",
+          "newState": "3:2"
+        }
+      ]
+    },
+    {
+      "from": "0:3",
+      "to": [
+        {
+          "signal": "u",
+          "newState": "0:2"
+        },
+        {
+          "signal": "d",
+          "newState": "0:4"
+        },
+        {
+       	  "signal": "r",
+       	  "newState": "1:3"
+        }
+      ]
+    },
+    {
+      "from": "1:3",
+      "to": [
+        {
+          "signal": "u",
+          "newState": "1:2"
+        },
+        {
+          "signal": "d",
+          "newState": "1:4"
+        },
+        {
+       	  "signal": "r",
+       	  "newState": "2:3"
+        },
+        {
+          "signal": "l",
+          "newState": "0:3"
+        }
+      ]
+    },
+    {
+      "from": "2:3",
+      "to": [
+        {
+          "signal": "u",
+          "newState": "2:2"
+        },
+        {
+          "signal": "d",
+          "newState": "2:4"
+        },
+        {
+       	  "signal": "r",
+       	  "newState": "3:3"
+        },
+        {
+          "signal": "l",
+          "newState": "1:3"
+        }
+      ]
+    },
+    {
+      "from": "3:3",
+      "to": [
+        {
+          "signal": "u",
+          "newState": "3:2"
+        },
+        {
+          "signal": "d",
+          "newState": "3:4"
+        },
+        {
+       	  "signal": "r",
+       	  "newState": "4:3"
+        },
+        {
+          "signal": "l",
+          "newState": "2:3"
+        }
+      ]
+    },
+    {
+      "from": "4:3",
+      "to": [
+        {
+          "signal": "u",
+          "newState": "4:2"
+        },
+        {
+          "signal": "d",
+          "newState": "4:4"
+        },
+        {
+          "signal": "l",
+          "newState": "3:3"
+        }
+      ]
+    },
+    {
+      "from": "0:4",
+      "to": [
+        {
+          "signal": "u",
+          "newState": "0:3"
+        },
+        {
+       	  "signal": "r",
+       	  "newState": "1:4"
+        }
+      ]
+    },
+    {
+      "from": "1:4",
+      "to": [
+        {
+          "signal": "u",
+          "newState": "1:3"
+        },
+        {
+       	  "signal": "r",
+       	  "newState": "2:4"
+        },
+        {
+          "signal": "l",
+          "newState": "0:4"
+        }
+      ]
+    },
+    {
+      "from": "2:4",
+      "to": [
+        {
+          "signal": "u",
+          "newState": "2:3"
+        },
+        {
+       	  "signal": "r",
+       	  "newState": "3:4"
+        },
+        {
+          "signal": "l",
+          "newState": "1:4"
+        }
+      ]
+    },
+    {
+      "from": "3:4",
+      "to": [
+        {
+          "signal": "u",
+          "newState": "3:3"
+        },
+        {
+       	  "signal": "r",
+       	  "newState": "4:4"
+        },
+        {
+          "signal": "l",
+          "newState": "2:4"
+        }
+      ]
+    },
+    {
+      "from": "4:4",
+      "to": [
+        {
+          "signal": "u",
+          "newState": "4:3"
+        },
+        {
+          "signal": "l",
+          "newState": "3:4"
+        }
+      ]
+    }
+  ]
+}
