@@ -1,3 +1,4 @@
+import taskOne.UniversalAutoma;
 import taskOne.UniversalDeterministicAutomaton;
 import taskOne.UniversalUndeterministicAutomation;
 
@@ -6,14 +7,9 @@ import taskOne.UniversalUndeterministicAutomation;
  */
 public class Application {
     public static void main(String[] args) {
-        UniversalDeterministicAutomaton automaton =
-                new UniversalDeterministicAutomaton("C:\\Users\\ErmolaevAM\\Downloads\\FormalLanguages\\src\\main\\resources\\taskOne\\data.json");
 
-        UniversalUndeterministicAutomation undeterministicAutomation =
-                new UniversalUndeterministicAutomation("C:\\Users\\ErmolaevAM\\Downloads\\FormalLanguages\\src\\main\\resources\\taskOne\\task2automa.json");
+        UniversalAutoma automa = new UniversalAutoma("D:\\ermolaxe\\GitProject\\FormalLanguages\\src\\main\\resources\\taskOne\\universalSchemaToJson.json");
 
-//        automaton.start("abababaa");
 
-        undeterministicAutomation.start("u");
     }
 }
