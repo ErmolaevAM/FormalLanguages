@@ -74,26 +74,50 @@ public class UniversalAutoma {
         return map;
     }
 
-    private boolean start(String word) {
+    public boolean start(String word) {
         boolean flag = false;
-        if (enteredStringValidation(word) == false) {
+        if (!enteredStringValidation(word)) {
             System.out.println("Entered string contains invalid characters.");
             return flag;
         }
-        //.....
+        List<String> listOfCurrentStates = new ArrayList<String>();
+        listOfCurrentStates.addAll(startStates);
+        char[] charArray = word.toCharArray();
+        for (int i = 0; i < charArray.length; i++) {
+            List<String> newCurrentStates = new ArrayList<String>();
+            for (int j = 0; j < listOfCurrentStates.size(); j++) {
+                String currentState = listOfCurrentStates.get(j);
+                List<String> newStates = moveFunctions.get(currentState).get(String.valueOf(charArray[i]));
+                listOfCurrentStates.set(j, newStates.get(0));
+                int index = 1;
+                while (index < newStates.size()){
+                    newCurrentStates.add(newStates.get(index));
+                    index++;
+                }
+            }
+            listOfCurrentStates.addAll(newCurrentStates);
+        }
+        if (isCurrentStateFinal(listOfCurrentStates)){
+            flag = true;
+        }
         return flag;
     }
 
     private boolean enteredStringValidation(String entered) {
         for (Character elem : entered.toCharArray()) {
-            if (!alphabet.contains(elem)) {
+            if (!alphabet.contains(String.valueOf(elem))) {
                 return false;
             }
         }
         return true;
     }
 
-    private boolean isCurrentStateFinal(String currentState) {
-        return setOfFinalStates.contains(currentState);
+    private boolean isCurrentStateFinal(List<String> listOfCurrentStates) {
+        for (String elem : listOfCurrentStates) {
+            if (setOfFinalStates.contains(elem)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
