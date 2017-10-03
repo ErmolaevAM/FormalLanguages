@@ -1,32 +1,24 @@
 {
   "startStates": [
-  	"0:0", "4:4"
+    "0:1"
   ],
   "setOfFinalStates": [
-    "0:0", "0:4", "4:0", "4:4"
+    "3:0", "3:3"
   ],
   "alphabet": [
-    "u", "d", "r", "l"
+    "k", "s"
   ],
   "moveFunctions": [
     {
       "from": "0:0",
       "to": [
         {
-          "signal": "r",
-          "newSignal": ["1:0"]
+          "signal": "k",
+          "newSignal": ["1:2", "2:1"]
         },
         {
-          "signal": "d",
-          "newSignal": ["0:1"]
-        },
-        {
-          "signal": "u",
-          "newSignal": ["tmp"]
-        },
-        {
-          "signal": "l",
-          "newSignal": ["tmp"]
+          "signal": "s",
+          "newSignal": ["1:1"]
         }
       ]
     },
@@ -34,20 +26,12 @@
       "from": "1:0",
       "to": [
         {
-          "signal": "r",
-          "newSignal": ["2:0"]
+          "signal": "k",
+          "newSignal": ["0:2", "2:0", "3:1"]
         },
         {
-          "signal": "d",
-          "newSignal": ["1:1"]
-        },
-        {
-          "signal": "l",
-          "newSignal": ["0:0"]
-        },
-        {
-          "signal": "u",
-          "newSignal": ["tmp"]
+          "signal": "s",
+          "newSignal": ["0:1", "2:1"]
         }
       ]
     },
@@ -55,20 +39,12 @@
       "from": "2:0",
       "to": [
         {
-          "signal": "r",
-          "newSignal": ["3:0"]
+          "signal": "k",
+          "newSignal": ["0:1", "1:2", "3:2"]
         },
         {
-          "signal": "d",
-          "newSignal": ["2:1"]
-        },
-        {
-          "signal": "l",
-          "newSignal": ["1:1"]
-        },
-        {
-          "signal": "u",
-          "newSignal": ["tmp"]
+          "signal": "s",
+          "newSignal": ["1:1", "3:1"]
         }
       ]
     },
@@ -76,41 +52,12 @@
       "from": "3:0",
       "to": [
         {
-          "signal": "r",
-          "newSignal": ["4:0"]
+          "signal": "k",
+          "newSignal": ["1:2", "2:1"]
         },
         {
-          "signal": "d",
-          "newSignal": ["3:1"]
-        },
-        {
-          "signal": "l",
-          "newSignal": ["2:0"]
-        },
-        {
-          "signal": "u",
-          "newSignal": ["tmp"]
-        }
-      ]
-    },
-    {
-      "from": "4:0",
-      "to": [
-        {
-          "signal": "l",
-          "newSignal": ["3:0"]
-        },
-        {
-          "signal": "d",
-          "newSignal": ["4:1"]
-        },
-        {
-          "signal": "u",
-          "newSignal": ["tmp"]
-        },
-        {
-          "signal": "r",
-          "newSignal": ["tmp"]
+          "signal": "s",
+          "newSignal": ["1:1"]
         }
       ]
     },
@@ -118,20 +65,12 @@
       "from": "0:1",
       "to": [
         {
-          "signal": "r",
-          "newSignal": ["1:1"]
+          "signal": "k",
+          "newSignal": ["2:0", "2:2", "1:3"]
         },
         {
-          "signal": "d",
-          "newSignal": ["0:2"]
-        },
-        {
-       	  "signal": "u",
-       	  "newSignal": ["0:0"]
-        },
-        {
-          "signal": "l",
-          "newSignal": ["tmp"]
+          "signal": "s",
+          "newSignal": ["1:0", "1:2"]
         }
       ]
     },
@@ -139,20 +78,12 @@
       "from": "1:1",
       "to": [
         {
-          "signal": "u",
-          "newSignal": ["1:0"]
+          "signal": "k",
+          "newSignal": ["3:0", "3:2", "2:3", "0:3"]
         },
         {
-          "signal": "d",
-          "newSignal": ["1:2"]
-        },
-        {
-       	  "signal": "r",
-       	  "newSignal": ["2:1"]
-        },
-        {
-          "signal": "l",
-          "newSignal": ["0:1"]
+          "signal": "s",
+          "newSignal": ["0:0", "2:0", "0:2", "2:2"]
         }
       ]
     },
@@ -160,20 +91,12 @@
       "from": "2:1",
       "to": [
         {
-          "signal": "u",
-          "newSignal": ["2:0"]
+          "signal": "k",
+          "newSignal": ["0:0", "0:2", "1:3", "3:3"]
         },
         {
-          "signal": "d",
-          "newSignal": ["2:2"]
-        },
-        {
-       	  "signal": "r",
-       	  "newSignal": ["3:1"]
-        },
-        {
-          "signal": "l",
-          "newSignal": ["1:1"]
+          "signal": "s",
+          "newSignal": ["1:0", "3:0", "1:2", "3:2"]
         }
       ]
     },
@@ -181,41 +104,12 @@
       "from": "3:1",
       "to": [
         {
-          "signal": "u",
-          "newSignal": ["3:0"]
+          "signal": "k",
+          "newSignal": ["1:0", "1:2", "2:3"]
         },
         {
-          "signal": "d",
-          "newSignal": ["3:2"]
-        },
-        {
-       	  "signal": "r",
-       	  "newSignal": ["4:1"]
-        },
-        {
-          "signal": "l",
-          "newSignal": ["2:1"]
-        }
-      ]
-    },
-    {
-      "from": "4:1",
-      "to": [
-        {
-          "signal": "u",
-          "newSignal": ["4:0"]
-        },
-        {
-          "signal": "d",
-          "newSignal": ["4:2"]
-        },
-        {
-          "signal": "l",
-          "newSignal": ["3:1"]
-        },
-        {
-          "signal": "r",
-          "newSignal": ["tmp"]
+          "signal": "s",
+          "newSignal": ["2:0", "2:2"]
         }
       ]
     },
@@ -223,20 +117,12 @@
       "from": "0:2",
       "to": [
         {
-          "signal": "u",
-          "newSignal": ["0:1"]
+          "signal": "k",
+          "newSignal": ["1:0", "2:1", "2:3"]
         },
         {
-          "signal": "d",
-          "newSignal": ["0:3"]
-        },
-        {
-       	  "signal": "r",
-       	  "newSignal": ["1:2"]
-        },
-        {
-          "signal": "l",
-          "newSignal": ["tmp"]
+          "signal": "s",
+          "newSignal": ["1:1", "1:3"]
         }
       ]
     },
@@ -244,20 +130,12 @@
       "from": "1:2",
       "to": [
         {
-          "signal": "u",
-          "newSignal": ["1:1"]
+          "signal": "k",
+          "newSignal": ["0:0", "2:0", "3:1", "3:3"]
         },
         {
-          "signal": "d",
-          "newSignal": ["1:3"]
-        },
-        {
-       	  "signal": "r",
-       	  "newSignal": ["2:2"]
-        },
-        {
-          "signal": "l",
-          "newSignal": ["0:2"]
+          "signal": "s",
+          "newSignal": ["0:1", "2:1", "0:3", "2:3"]
         }
       ]
     },
@@ -265,20 +143,12 @@
       "from": "2:2",
       "to": [
         {
-          "signal": "u",
-          "newSignal": ["2:1"]
+          "signal": "k",
+          "newSignal": ["3:0", "1:0", "0:1", "0:3"]
         },
         {
-          "signal": "d",
-          "newSignal": ["2:3"]
-        },
-        {
-       	  "signal": "r",
-       	  "newSignal": ["3:2"]
-        },
-        {
-          "signal": "l",
-          "newSignal": ["1:2"]
+          "signal": "s",
+          "newSignal": ["1:1", "3:1", "1:3", "3:3"]
         }
       ]
     },
@@ -286,41 +156,12 @@
       "from": "3:2",
       "to": [
         {
-          "signal": "u",
-          "newSignal": ["3:1"]
+          "signal": "k",
+          "newSignal": ["2:0", "1:1", "1:3"]
         },
         {
-          "signal": "d",
-          "newSignal": ["3:3"]
-        },
-        {
-       	  "signal": "r",
-       	  "newSignal": ["4:2"]
-        },
-        {
-          "signal": "l",
-          "newSignal": ["2:2"]
-        }
-      ]
-    },
-    {
-      "from": "4:2",
-      "to": [
-        {
-          "signal": "u",
-          "newSignal": ["4:1"]
-        },
-        {
-          "signal": "d",
-          "newSignal": ["4:3"]
-        },
-        {
-          "signal": "l",
-          "newSignal": ["3:2"]
-        },
-        {
-          "signal": "r",
-          "newSignal": ["tmp"]
+          "signal": "s",
+          "newSignal": ["2:1", "2:3"]
         }
       ]
     },
@@ -328,20 +169,12 @@
       "from": "0:3",
       "to": [
         {
-          "signal": "u",
-          "newSignal": ["0:2"]
+          "signal": "k",
+          "newSignal": ["1:1", "2:2"]
         },
         {
-          "signal": "d",
-          "newSignal": ["0:4"]
-        },
-        {
-       	  "signal": "r",
-       	  "newSignal": ["1:3"]
-        },
-        {
-          "signal": "l",
-          "newSignal": ["tmp"]
+          "signal": "s",
+          "newSignal": ["1:2"]
         }
       ]
     },
@@ -349,20 +182,12 @@
       "from": "1:3",
       "to": [
         {
-          "signal": "u",
-          "newSignal": ["1:2"]
+          "signal": "k",
+          "newSignal": ["0:1", "2:1", "3:2"]
         },
         {
-          "signal": "d",
-          "newSignal": ["1:4"]
-        },
-        {
-       	  "signal": "r",
-       	  "newSignal": ["2:3"]
-        },
-        {
-          "signal": "l",
-          "newSignal": ["0:3"]
+          "signal": "s",
+          "newSignal": ["0:2", "2:2"]
         }
       ]
     },
@@ -370,20 +195,12 @@
       "from": "2:3",
       "to": [
         {
-          "signal": "u",
-          "newSignal": ["2:2"]
+          "signal": "k",
+          "newSignal": ["3:1", "1:1", "0:2"]
         },
         {
-          "signal": "d",
-          "newSignal": ["2:4"]
-        },
-        {
-       	  "signal": "r",
-       	  "newSignal": ["3:3"]
-        },
-        {
-          "signal": "l",
-          "newSignal": ["1:3"]
+          "signal": "s",
+          "newSignal": ["3:2", "1:2"]
         }
       ]
     },
@@ -391,167 +208,12 @@
       "from": "3:3",
       "to": [
         {
-          "signal": "u",
-          "newSignal": ["3:2"]
+          "signal": "k",
+          "newSignal": ["1:2", "2:1"]
         },
         {
-          "signal": "d",
-          "newSignal": ["3:4"]
-        },
-        {
-       	  "signal": "r",
-       	  "newSignal": ["4:3"]
-        },
-        {
-          "signal": "l",
-          "newSignal": ["2:3"]
-        }
-      ]
-    },
-    {
-      "from": "4:3",
-      "to": [
-        {
-          "signal": "u",
-          "newSignal": ["4:2"]
-        },
-        {
-          "signal": "d",
-          "newSignal": ["4:4"]
-        },
-        {
-          "signal": "l",
-          "newSignal": ["3:3"]
-        },
-        {
-          "signal": "r",
-          "newSignal": ["tmp"]
-        }
-      ]
-    },
-    {
-      "from": "0:4",
-      "to": [
-        {
-          "signal": "u",
-          "newSignal": ["0:3"]
-        },
-        {
-       	  "signal": "r",
-       	  "newSignal": ["1:4"]
-        },
-        {
-          "signal": "l",
-          "newSignal": ["tmp"]
-        },
-        {
-          "signal": "d",
-          "newSignal": ["tmp"]
-        }
-      ]
-    },
-    {
-      "from": "1:4",
-      "to": [
-        {
-          "signal": "u",
-          "newSignal": ["1:3"]
-        },
-        {
-       	  "signal": "r",
-       	  "newSignal": ["2:4"]
-        },
-        {
-          "signal": "l",
-          "newSignal": ["0:4"]
-        },
-        {
-          "signal": "d",
-          "newSignal": ["tmp"]
-        }
-      ]
-    },
-    {
-      "from": "2:4",
-      "to": [
-        {
-          "signal": "u",
-          "newSignal": ["2:3"]
-        },
-        {
-       	  "signal": "r",
-       	  "newSignal": ["3:4"]
-        },
-        {
-          "signal": "l",
-          "newSignal": ["1:4"]
-        },
-        {
-          "signal": "d",
-          "newSignal": ["tmp"]
-        }
-      ]
-    },
-    {
-      "from": "3:4",
-      "to": [
-        {
-          "signal": "u",
-          "newSignal": ["3:3"]
-        },
-        {
-       	  "signal": "r",
-       	  "newSignal": ["4:4"]
-        },
-        {
-          "signal": "l",
-          "newSignal": ["2:4"]
-        },
-        {
-          "signal": "d",
-          "newSignal": ["tmp"]
-        }
-      ]
-    },
-    {
-      "from": "4:4",
-      "to": [
-        {
-          "signal": "u",
-          "newSignal": ["4:3"]
-        },
-        {
-          "signal": "l",
-          "newSignal": ["3:4"]
-        },
-        {
-          "signal": "r",
-          "newSignal": ["tmp"]
-        },
-        {
-          "signal": "d",
-          "newSignal": ["tmp"]
-        }
-      ]
-    },
-    {
-      "from": "tmp",
-      "to": [
-        {
-          "signal": "u",
-          "newSignal": ["tmp"]
-        },
-        {
-          "signal": "d",
-          "newSignal": ["tmp"]
-        },
-        {
-          "signal": "l",
-          "newSignal": ["tmp"]
-        },
-        {
-          "signal": "r",
-          "newSignal": ["tmp"]
+          "signal": "s",
+          "newSignal": ["2:2"]
         }
       ]
     }
