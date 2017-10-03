@@ -105,11 +105,31 @@ public class UniversalAutoma {
 
     public List<String> taskTwoStart(String word, int index) {
         String subString = word.substring(index-1);
-        List<String> tmp = new ArrayList<>();
+        List<String> resultList = new ArrayList<>();
+        List<String> listOfCurrentStates = new ArrayList<>();
+        listOfCurrentStates.addAll(startStates);
 
-
-
-        return tmp;
+        StringBuilder number = new StringBuilder();
+        char[] charInWord = word.toCharArray();
+        for (int i = 0; i < charInWord.length; i++) {
+            if (alphabet.contains(String.valueOf(charInWord[i]))) {
+                number.append(charInWord[i]);
+                List<String> tmp = moveFunctions.get(listOfCurrentStates.get(0)).get(String.valueOf(charInWord[i]));
+                listOfCurrentStates.set(0,tmp.get(0));
+            } else {
+                while (!alphabet.contains(String.valueOf(charInWord[i]))) {
+                    i++;
+                }
+                System.out.println("---number:"+number);
+                resultList.add(number.toString());
+                number.delete(0, number.length());
+                i--;
+            }
+        }
+        System.out.println("---number:"+number);
+        resultList.add(number.toString());
+        number.delete(0, number.length());
+        return resultList;
     }
 
     private boolean enteredStringValidation(String entered) {
