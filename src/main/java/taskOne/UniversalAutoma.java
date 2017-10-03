@@ -103,6 +103,15 @@ public class UniversalAutoma {
         return flag;
     }
 
+    public List<String> taskTwoStart(String word, int index) {
+        String subString = word.substring(index-1);
+        List<String> tmp = new ArrayList<>();
+
+
+
+        return tmp;
+    }
+
     private boolean enteredStringValidation(String entered) {
         for (Character elem : entered.toCharArray()) {
             if (!alphabet.contains(String.valueOf(elem))) {

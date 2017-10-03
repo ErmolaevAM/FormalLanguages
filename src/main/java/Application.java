@@ -6,13 +6,14 @@ import taskOne.UniversalAutoma;
 public class Application {
     public static void main(String[] args) {
 
-        /*String deterministicAutomaFile = "D:\\ermolaxe\\GitProject\\FormalLanguages\\src\\main\\resources\\taskOne\\deterministicAutoma.json";
+        String deterministicAutomaFile = "D:\\ermolaxe\\GitProject\\FormalLanguages\\src\\main\\resources\\taskOne\\deterministicAutoma.json";
         String undeterministicAutomaFile = "D:\\ermolaxe\\GitProject\\FormalLanguages\\src\\main\\resources\\taskOne\\undeterministicAutoma.json";
         String taskTwo = "D:\\ermolaxe\\GitProject\\FormalLanguages\\src\\main\\resources\\taskOne\\taskTwoFile.json";
         String taskThree = "";
 
-        UniversalAutoma automa = new UniversalAutoma(deterministicAutomaFile);
-        System.out.println(automa.start("aaaa"));*/
+        UniversalAutoma automa = new UniversalAutoma(taskTwo);
+        System.out.println(automa.start("+10.12e7"));
+
 
     }
 }
