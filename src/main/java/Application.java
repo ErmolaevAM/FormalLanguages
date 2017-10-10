@@ -16,6 +16,6 @@ public class Application {
 
 //        System.out.println(automa.start("+10.12e7"));
 
-
+            automa.printAllNumbers("+10.12e7abcde7f",1); //поправить
     }
 }

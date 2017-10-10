@@ -61,9 +61,9 @@ public class UniversalAutoma {
             Map<String, List<String>> tmpMap = new HashMap<String, List<String>>();
             JSONArray toStatesArray = (JSONArray) tmp.get("to");
             for (int j = 0; j < toStatesArray.size(); j++) {
-                String signal = ((JSONObject)toStatesArray.get(j)).get("signal").toString();
+                String signal = ((JSONObject) toStatesArray.get(j)).get("signal").toString();
                 List<String> newSignalsList = new ArrayList<String>();
-                JSONArray newSignalsArray = (JSONArray) ((JSONObject)toStatesArray.get(j)).get("newSignal");
+                JSONArray newSignalsArray = (JSONArray) ((JSONObject) toStatesArray.get(j)).get("newSignal");
                 for (int k = 0; k < newSignalsArray.size(); k++) {
                     newSignalsList.add(String.valueOf(newSignalsArray.get(k)));
                 }
@@ -90,21 +90,21 @@ public class UniversalAutoma {
                 List<String> newStates = moveFunctions.get(currentState).get(String.valueOf(charArray[i]));
                 listOfCurrentStates.set(j, newStates.get(0));
                 int index = 1;
-                while (index < newStates.size()){
+                while (index < newStates.size()) {
                     newCurrentStates.add(newStates.get(index));
                     index++;
                 }
             }
             listOfCurrentStates.addAll(newCurrentStates);
         }
-        if (isCurrentStateFinal(listOfCurrentStates)){
+        if (isCurrentStateFinal(listOfCurrentStates)) {
             flag = true;
         }
         return flag;
     }
 
-    public List<String> taskTwoStart(String word, int index) {
-        String subString = word.substring(index-1);
+    private List<String> taskTwoStart(String word, int index) {
+        String subString = word.substring(index - 1);
         List<String> resultList = new ArrayList<>();
         List<String> listOfCurrentStates = new ArrayList<>();
         listOfCurrentStates.addAll(startStates);
@@ -115,18 +115,17 @@ public class UniversalAutoma {
             if (alphabet.contains(String.valueOf(charInWord[i]))) {
                 number.append(charInWord[i]);
                 List<String> tmp = moveFunctions.get(listOfCurrentStates.get(0)).get(String.valueOf(charInWord[i]));
-                listOfCurrentStates.set(0,tmp.get(0));
+                listOfCurrentStates.set(0, tmp.get(0));
             } else {
                 while (!alphabet.contains(String.valueOf(charInWord[i]))) {
                     i++;
+                    if (i == charInWord.length) break;
                 }
-                System.out.println("---number:"+number);
                 resultList.add(number.toString());
                 number.delete(0, number.length());
                 i--;
             }
         }
-        System.out.println("---number:"+number);
         resultList.add(number.toString());
         number.delete(0, number.length());
         return resultList;
@@ -148,5 +147,14 @@ public class UniversalAutoma {
             }
         }
         return false;
+    }
+
+    public void printAllNumbers(String word, int index) {
+        List<String> numbers = taskTwoStart(word, index);
+        for (String item : numbers) {
+            if (!item.isEmpty()) {
+                System.out.println(item);
+            }
+        }
     }
 }
