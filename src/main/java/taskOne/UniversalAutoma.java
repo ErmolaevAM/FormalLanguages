@@ -110,24 +110,26 @@ public class UniversalAutoma {
         listOfCurrentStates.addAll(startStates);
 
         StringBuilder number = new StringBuilder();
-        char[] charInWord = word.toCharArray();
+        char[] charInWord = subString.toCharArray();
         for (int i = 0; i < charInWord.length; i++) {
             if (alphabet.contains(String.valueOf(charInWord[i]))) {
-                number.append(charInWord[i]);
-                List<String> tmp = moveFunctions.get(listOfCurrentStates.get(0)).get(String.valueOf(charInWord[i]));
-                listOfCurrentStates.set(0, tmp.get(0));
-            } else {
-                while (!alphabet.contains(String.valueOf(charInWord[i]))) {
-                    i++;
-                    if (i == charInWord.length) break;
+                String type = translateSignals(charInWord[i]);
+                if (!"tmp".equals(moveFunctions.get(listOfCurrentStates.get(0)).get(type).get(0))) {
+                    number.append(charInWord[i]);
+                    listOfCurrentStates.set(0, moveFunctions.get(listOfCurrentStates.get(0)).get(type).get(0));
                 }
-                resultList.add(number.toString());
+            } else {
+                resultList.add(String.valueOf(number));
                 number.delete(0, number.length());
+                while (!alphabet.contains(String.valueOf(charInWord[i]))) {
+                    if (i != charInWord.length) {
+                        i++;
+                    }
+                }
                 i--;
             }
         }
-        resultList.add(number.toString());
-        number.delete(0, number.length());
+        resultList.add(String.valueOf(number));
         return resultList;
     }
 
@@ -149,6 +151,22 @@ public class UniversalAutoma {
         return false;
     }
 
+    private String translateSignals(Character signal) {
+        if ('e' == signal || 'E' == signal) {
+            return "E";
+        }
+        if ('.' == signal) {
+            return "D";
+        }
+        if (Character.isDigit(signal)) {
+            return "N";
+        }
+        if ('+' == signal || '-' == signal) {
+            return "S";
+        }
+        return "";
+    }
+
     public void printAllNumbers(String word, int index) {
         List<String> numbers = taskTwoStart(word, index);
         for (String item : numbers) {
@@ -157,4 +175,6 @@ public class UniversalAutoma {
             }
         }
     }
+
+
 }
