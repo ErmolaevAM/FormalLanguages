@@ -104,32 +104,44 @@ public class UniversalAutoma {
     }
 
     private List<String> taskTwoStart(String word, int index) {
-        String subString = word.substring(index - 1);
+        String subString = word.substring(index - 1); //находим подстроку, с которой будем запускать автомат
         List<String> resultList = new ArrayList<>();
-        List<String> listOfCurrentStates = new ArrayList<>();
-        listOfCurrentStates.addAll(startStates);
+        String currentState = getOneCurrentState();
+        char[] chars = subString.toCharArray();
+        int length = subString.toCharArray().length;
 
         StringBuilder number = new StringBuilder();
-        char[] charInWord = subString.toCharArray();
-        for (int i = 0; i < charInWord.length; i++) {
-            if (alphabet.contains(String.valueOf(charInWord[i]))) {
-                String type = translateSignals(charInWord[i]);
-                if (!"tmp".equals(moveFunctions.get(listOfCurrentStates.get(0)).get(type).get(0))) {
-                    number.append(charInWord[i]);
-                    listOfCurrentStates.set(0, moveFunctions.get(listOfCurrentStates.get(0)).get(type).get(0));
-                }
-            } else {
-                resultList.add(String.valueOf(number));
-                number.delete(0, number.length());
-                while (!alphabet.contains(String.valueOf(charInWord[i]))) {
-                    if (i != charInWord.length) {
-                        i++;
+
+        //magic
+        for (int i = 0; i < length; i++) {
+            String tmp = "";
+            if (!"".equals(translateSignals(chars[i]))) {
+                tmp = moveFunctions.get(currentState).get(translateSignals(chars[i])).get(0);
+                if (!"tmp".equals(tmp)) {
+                    number.append(chars[i]);
+                    currentState = tmp;
+                } else if (setOfFinalStates.contains(currentState)) {
+                    if (!"".equals(number.toString())) {
+                        resultList.add(number.toString());
+                        number.delete(0, number.length());
+                        currentState = "1";
+                        i--;
                     }
                 }
-                i--;
+            } else {
+                if (!"".equals(number.toString())) {
+                    resultList.add(number.toString());
+                    number.delete(0, number.length());
+                    currentState = "1";
+                }
             }
         }
-        resultList.add(String.valueOf(number));
+
+        if (!"".equals(number.toString())) {
+            resultList.add(number.toString());
+            number.delete(0, number.length());
+        }
+
         return resultList;
     }
 
@@ -167,6 +179,14 @@ public class UniversalAutoma {
         return "";
     }
 
+    private String getOneCurrentState() {
+        String currentState = "";
+        for (String item : startStates) {
+            currentState = item;
+        }
+        return currentState;
+    }
+
     public void printAllNumbers(String word, int index) {
         List<String> numbers = taskTwoStart(word, index);
         for (String item : numbers) {
@@ -175,6 +195,5 @@ public class UniversalAutoma {
             }
         }
     }
-
 
 }
