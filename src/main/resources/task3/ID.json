@@ -1,0 +1,86 @@
+{
+  "startStates": [
+    "1"
+  ],
+  "setOfFinalStates": [
+    "2"
+  ],
+  "alphabet": [
+    "_",
+    "1", "2", "3", "4", "5", "6", "7", "8", "9", "0",
+    "q", "w", "e", "r", "t", "y", "u", "i", "o", "p",
+    "a", "s", "d", "f", "g", "h", "j", "k", "l", "z",
+    "x", "c", "v", "b", "n", "m"
+  ],
+  "moveFunctions": [
+    {
+      "from": "1",
+      "to": [
+        {
+          "signal": "L",
+          "newSignal": [
+            "2"
+          ]
+        },
+        {
+          "signal": "N",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "_",
+          "newSignal": [
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "from": "2",
+      "to": [
+        {
+          "signal": "L",
+          "newSignal": [
+            "2"
+          ]
+        },
+        {
+          "signal": "N",
+          "newSignal": [
+            "2"
+          ]
+        },
+        {
+          "signal": "_",
+          "newSignal": [
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "from": "tmp",
+      "to": [
+        {
+          "signal": "L",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "N",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "_",
+          "newSignal": [
+            "tmp"
+          ]
+        }
+      ]
+    }
+  ]
+}

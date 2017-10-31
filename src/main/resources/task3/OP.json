@@ -1,0 +1,42 @@
+{
+  "startStates": [
+    "1"
+  ],
+  "setOfFinalStates": [
+    "2"
+  ],
+  "alphabet": [
+    "+", "-", "*", "/"
+  ],
+  "moveFunctions": [
+    {
+      "from": "1",
+      "to": [
+        {
+          "signal": "+",
+          "newSignal": [
+            "2"
+          ]
+        },
+        {
+          "signal": "-",
+          "newSignal": [
+            "2"
+          ]
+        },
+        {
+          "signal": "*",
+          "newSignal": [
+            "2"
+          ]
+        },
+        {
+          "signal": "/",
+          "newSignal": [
+            "2"
+          ]
+        }
+      ]
+    }
+  ]
+}

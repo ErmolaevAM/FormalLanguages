@@ -1,4 +1,4 @@
-package taskOne;
+package task1;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -130,6 +130,7 @@ public class UniversalAutoma {
                 }
             } else {
                 if (!"".equals(number.toString())) {
+                    cleanNumber(number);
                     resultList.add(number.toString());
                     number.delete(0, number.length());
                     currentState = "1";
@@ -137,9 +138,11 @@ public class UniversalAutoma {
             }
         }
 
-        if (!"".equals(number.toString())) {
-            resultList.add(number.toString());
-            number.delete(0, number.length());
+        if (setOfFinalStates.contains(currentState)) {
+            if (!"".equals(number.toString())) {
+                resultList.add(number.toString());
+                number.delete(0, number.length());
+            }
         }
 
         return resultList;
@@ -179,6 +182,14 @@ public class UniversalAutoma {
         return "";
     }
 
+    private void cleanNumber(StringBuilder number) {
+        if (number.toString().toCharArray()[number.length()-1]=='e' || number.toString().toCharArray()[number.length()-1]=='E') {
+            while (number.toString().toCharArray()[number.length()-1]=='e' || number.toString().toCharArray()[number.length()-1]=='E') {
+                number.delete(number.length()-1, number.length());
+            }
+        }
+    }
+
     private String getOneCurrentState() {
         String currentState = "";
         for (String item : startStates) {
@@ -194,6 +205,19 @@ public class UniversalAutoma {
                 System.out.println(item);
             }
         }
+    }
+
+    public void returnMaxNumberLength(String word, int index) {
+        List<String> numbers = taskTwoStart(word, index);
+        String maxWord= "";
+        int maxLength = 0;
+        for (int i = 0; i < numbers.size(); i++) {
+            if (numbers.get(i).length() > maxLength) {
+                maxWord = numbers.get(i);
+                maxLength = maxWord.length();
+            }
+        }
+        System.out.println("<"+maxWord+";"+maxLength+">");
     }
 
 }
