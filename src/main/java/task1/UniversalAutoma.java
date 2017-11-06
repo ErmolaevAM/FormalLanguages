@@ -74,6 +74,10 @@ public class UniversalAutoma {
         return map;
     }
 
+    /*-----LOGIC-----*/
+
+
+
     public boolean start(String word) {
         boolean flag = false;
         if (!enteredStringValidation(word)) {
@@ -178,6 +182,9 @@ public class UniversalAutoma {
         }
         if ('+' == signal || '-' == signal) {
             return "S";
+        }
+        if (Character.isLetter(signal)) {
+            return "L";
         }
         return "";
     }

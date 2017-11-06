@@ -6,12 +6,24 @@
     "2"
   ],
   "alphabet": [
-    "+", "-", "*", "/"
+    "*", "/", "+", "-"
   ],
   "moveFunctions": [
     {
       "from": "1",
       "to": [
+        {
+          "signal": "*",
+          "newSignal": [
+            "2"
+          ]
+        },
+        {
+          "signal": "/",
+          "newSignal": [
+            "2"
+          ]
+        },
         {
           "signal": "+",
           "newSignal": [
@@ -23,17 +35,63 @@
           "newSignal": [
             "2"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "from": "2",
+      "to": [
         {
-          "signal": "*",
+          "signal": "(",
           "newSignal": [
-            "2"
+            "tmp"
           ]
         },
         {
-          "signal": "/",
+          "signal": "(",
           "newSignal": [
-            "2"
+            "tmp"
+          ]
+        },
+        {
+          "signal": "(",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "(",
+          "newSignal": [
+            "tmp"
+          ]
+        }
+      ]
+    },
+    {
+      "from": "tmp",
+      "to": [
+        {
+          "signal": "(",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "(",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "(",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "(",
+          "newSignal": [
+            "tmp"
           ]
         }
       ]

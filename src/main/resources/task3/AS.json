@@ -19,6 +19,28 @@
           ]
         }
       ]
+    },
+    {
+      "from": "2",
+      "to": [
+        {
+          "signal": "=",
+          "newSignal": [
+            "tmp"
+          ]
+        }
+      ]
+    },
+    {
+      "from": "tmp",
+      "to": [
+        {
+          "signal": "=",
+          "newSignal": [
+            "tmp"
+          ]
+        }
+      ]
     }
   ]
 }
