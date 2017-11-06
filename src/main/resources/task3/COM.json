@@ -1,0 +1,187 @@
+{
+  "startStates": [
+    "1"
+  ],
+  "setOfFinalStates": [
+    "2"
+  ],
+  "alphabet": [
+    ")", "(", "*", "smth"
+  ],
+  "moveFunctions": [
+    {
+      "from": "1",
+      "to": [
+        {
+          "signal": "(",
+          "newSignal": [
+            "2"
+          ]
+        },
+        {
+          "signal": ")",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "*",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "smth",
+          "newSignal": [
+            "tmp"
+          ]
+        }
+      ]
+    },
+    {
+      "from": "2",
+      "to": [
+        {
+          "signal": "(",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": ")",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "*",
+          "newSignal": [
+            "*"
+          ]
+        },
+        {
+          "signal": "smth",
+          "newSignal": [
+            "tmp"
+          ]
+        }
+      ]
+    },
+    {
+      "from": "3",
+      "to": [
+        {
+          "signal": "(",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": ")",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "*",
+          "newSignal": [
+            "4"
+          ]
+        },
+        {
+          "signal": "smth",
+          "newSignal": [
+            "5"
+          ]
+        }
+      ]
+    },
+    {
+      "from": "4",
+      "to": [
+        {
+          "signal": "(",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": ")",
+          "newSignal": [
+            "6"
+          ]
+        },
+        {
+          "signal": "*",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "smth",
+          "newSignal": [
+            "tmp"
+          ]
+        }
+      ]
+    },
+    {
+      "from": "5",
+      "to": [
+        {
+          "signal": "(",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": ")",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "*",
+          "newSignal": [
+            "4"
+          ]
+        },
+        {
+          "signal": "smth",
+          "newSignal": [
+            "5"
+          ]
+        }
+      ]
+    },
+    {
+      "from": "6",
+      "to": [
+        {
+          "signal": "(",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": ")",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "*",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "smth",
+          "newSignal": [
+            "tmp"
+          ]
+        }
+      ]
+    }
+  ]
+}

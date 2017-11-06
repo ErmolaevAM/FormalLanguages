@@ -1,0 +1,274 @@
+{
+  "startStates": [
+    "1"
+  ],
+  "setOfFinalStates": [
+    "3", "5", "7"
+  ],
+  "alphabet": [
+    "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "+", "-", ".", "e", "E"
+  ],
+  "moveFunctions": [
+    {
+      "from": "1",
+      "to": [
+        {
+          "signal": "S",
+          "newSignal": [
+            "2"
+          ]
+        },
+        {
+          "signal": "N",
+          "newSignal": [
+            "3"
+          ]
+        },
+        {
+          "signal": "D",
+          "newSignal": [
+            "4"
+          ]
+        },
+        {
+          "signal": "E",
+          "newSignal": [
+            "tmp"
+          ]
+        }
+      ]
+    },
+    {
+      "from": "2",
+      "to": [
+        {
+          "signal": "S",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "N",
+          "newSignal": [
+            "3"
+          ]
+        },
+        {
+          "signal": "D",
+          "newSignal": [
+            "4"
+          ]
+        },
+        {
+          "signal": "E",
+          "newSignal": [
+            "tmp"
+          ]
+        }
+      ]
+    },
+    {
+      "from": "3",
+      "to": [
+        {
+          "signal": "S",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "N",
+          "newSignal": [
+            "3"
+          ]
+        },
+        {
+          "signal": "D",
+          "newSignal": [
+            "5"
+          ]
+        },
+        {
+          "signal": "E",
+          "newSignal": [
+            "6"
+          ]
+        }
+      ]
+    },
+    {
+      "from": "4",
+      "to": [
+        {
+          "signal": "S",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "N",
+          "newSignal": [
+            "5"
+          ]
+        },
+        {
+          "signal": "D",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "E",
+          "newSignal": [
+            "tmp"
+          ]
+        }
+      ]
+    },
+    {
+      "from": "5",
+      "to": [
+        {
+          "signal": "S",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "N",
+          "newSignal": [
+            "5"
+          ]
+        },
+        {
+          "signal": "D",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "E",
+          "newSignal": [
+            "6"
+          ]
+        }
+      ]
+    },
+    {
+      "from": "6",
+      "to": [
+        {
+          "signal": "S",
+          "newSignal": [
+            "8"
+          ]
+        },
+        {
+          "signal": "N",
+          "newSignal": [
+            "7"
+          ]
+        },
+        {
+          "signal": "D",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "E",
+          "newSignal": [
+            "tmp"
+          ]
+        }
+      ]
+    },
+    {
+      "from": "7",
+      "to": [
+        {
+          "signal": "S",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "N",
+          "newSignal": [
+            "7"
+          ]
+        },
+        {
+          "signal": "D",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "E",
+          "newSignal": [
+            "tmp"
+          ]
+        }
+      ]
+    },
+    {
+      "from": "8",
+      "to": [
+        {
+          "signal": "S",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "N",
+          "newSignal": [
+            "7"
+          ]
+        },
+        {
+          "signal": "D",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "E",
+          "newSignal": [
+            "tmp"
+          ]
+        }
+      ]
+    },
+    {
+      "from": "tmp",
+      "to": [
+        {
+          "signal": "S",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "N",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "D",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "E",
+          "newSignal": [
+            "tmp"
+          ]
+        }
+      ]
+    }
+  ]
+}
