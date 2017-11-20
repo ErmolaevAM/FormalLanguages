@@ -3,10 +3,13 @@
     "1"
   ],
   "setOfFinalStates": [
-    "2"
+    "6"
   ],
   "alphabet": [
-    ")", "(", "*", "smth"
+    "(", ")", "*", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "!", "@", "#", "$", "%", "^", "&", "-", "=", "+",
+    "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]", "{", "}", "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", ":", "'", "\"", "\\", "|",
+    "/", "z", "x", "c", "v", "b", "n", "m", ",", "<", ".", ">", "?", "`", "~", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "A", "S", "D",
+    "F", "G", "H", "J", "K", "L", "Z", "X", "C", "V", "B", "N", "M"
   ],
   "moveFunctions": [
     {
@@ -31,7 +34,7 @@
           ]
         },
         {
-          "signal": "smth",
+          "signal": "content",
           "newSignal": [
             "tmp"
           ]
@@ -56,11 +59,11 @@
         {
           "signal": "*",
           "newSignal": [
-            "*"
+            "3"
           ]
         },
         {
-          "signal": "smth",
+          "signal": "content",
           "newSignal": [
             "tmp"
           ]
@@ -85,19 +88,48 @@
         {
           "signal": "*",
           "newSignal": [
-            "4"
+            "tmp"
           ]
         },
         {
-          "signal": "smth",
+          "signal": "content",
           "newSignal": [
-            "5"
+            "4"
           ]
         }
       ]
     },
     {
       "from": "4",
+      "to": [
+        {
+          "signal": "(",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": ")",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "*",
+          "newSignal": [
+            "5"
+          ]
+        },
+        {
+          "signal": "content",
+          "newSignal": [
+            "4"
+          ]
+        }
+      ]
+    },
+    {
+      "from": "5",
       "to": [
         {
           "signal": "(",
@@ -118,38 +150,9 @@
           ]
         },
         {
-          "signal": "smth",
+          "signal": "content",
           "newSignal": [
             "tmp"
-          ]
-        }
-      ]
-    },
-    {
-      "from": "5",
-      "to": [
-        {
-          "signal": "(",
-          "newSignal": [
-            "tmp"
-          ]
-        },
-        {
-          "signal": ")",
-          "newSignal": [
-            "tmp"
-          ]
-        },
-        {
-          "signal": "*",
-          "newSignal": [
-            "4"
-          ]
-        },
-        {
-          "signal": "smth",
-          "newSignal": [
-            "5"
           ]
         }
       ]
@@ -176,7 +179,36 @@
           ]
         },
         {
-          "signal": "smth",
+          "signal": "content",
+          "newSignal": [
+            "tmp"
+          ]
+        }
+      ]
+    },
+    {
+      "from": "tmp",
+      "to": [
+        {
+          "signal": "(",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": ")",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "*",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "content",
           "newSignal": [
             "tmp"
           ]

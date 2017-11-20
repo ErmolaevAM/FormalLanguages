@@ -4,6 +4,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import utils.LexemTypes;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -20,8 +21,11 @@ public class UniversalAutoma {
     private Set<String> startStates;
     private Set<String> setOfFinalStates;
 
-    public UniversalAutoma(String path) {
+    private LexemTypes type;
+
+    public UniversalAutoma(String path, LexemTypes typeOfLexem) {
         readAutomaFromJsonFile(path);
+        type = typeOfLexem;
     }
 
     private void readAutomaFromJsonFile(String pathToJson) {
@@ -74,9 +78,11 @@ public class UniversalAutoma {
         return map;
     }
 
+    public LexemTypes getType() {
+        return type;
+    }
+
     /*-----LOGIC-----*/
-
-
 
     public boolean start(String word) {
         boolean flag = false;
@@ -170,6 +176,10 @@ public class UniversalAutoma {
         return false;
     }
 
+    private boolean isCurrentStateFinal(String state) {
+        return setOfFinalStates.contains(state);
+    }
+
     private String translateSignals(Character signal) {
         if ('e' == signal || 'E' == signal) {
             return "E";
@@ -225,6 +235,109 @@ public class UniversalAutoma {
             }
         }
         System.out.println("<"+maxWord+";"+maxLength+">");
+    }
+
+    /*-----task three methods-----*/
+
+    public List<String> findLexems(String text, LexemTypes type) {
+        char[] textInChars = text.toCharArray();
+        List<String> resultList = new ArrayList<>();
+        String currentState = getOneCurrentState();
+        int textLength = textInChars.length;
+
+        StringBuilder word = new StringBuilder();
+        StringBuilder finalWord = new StringBuilder();
+
+        for (int i = 0; i < textLength; i++) {
+            String tmp = "";
+            if (!"".equals(textInChars[i])) {
+                if (alphabet.contains(String.valueOf(textInChars[i]))) {
+//                    tmp = moveFunctions.get(currentState).get(String.valueOf(textInChars[i])).get(0); //new state
+                    tmp = moveFunctions.get(currentState).get(translator(textInChars[i], type)).get(0); //new state
+                    if (!"tmp".equals(tmp)) { //if new state is not 'tmp'
+                        word.append(textInChars[i]); //add one symbol to the current word
+                        if (isCurrentStateFinal(currentState)) { //if current state is final
+                            finalWord = word; //add current word to the final word
+                        }
+                        currentState = tmp; //change current state to the new non 'tmp' state
+                    } else { //if new state is 'tmp'
+                        resultList.add(finalWord.toString()); //save final word from last non 'tmp' state to the result list
+                        word.delete(0, word.length()); //clear word
+                        finalWord.delete(0, finalWord.length()); //clear final word
+                        currentState = getOneCurrentState();
+                    }
+                } else if (!"".equals(finalWord.toString()) || !"".equals(word.toString())){ //if word/final word is not empty
+                    currentState = save(currentState, word, finalWord, resultList);
+                }
+            } else { //if new symbol from text is empty string
+                currentState = save(currentState, word, finalWord, resultList);
+            }
+        }
+
+        //add last word if
+        if (isCurrentStateFinal(currentState)) {
+            finalWord = word;
+            resultList.add(finalWord.toString());
+            word.delete(0, word.length());
+            finalWord.delete(0, finalWord.length());
+        } else {
+            resultList.add(word.toString());
+            word.delete(0, word.length());
+            finalWord.delete(0, finalWord.length());
+        }
+
+        int maxLength = 0;
+        String wordWithMaxLength = "";
+
+        for (String item : resultList) {
+            if (maxLength < item.length()) {
+                maxLength = item.length();
+                wordWithMaxLength = item;
+            }
+        }
+
+//        System.out.println("<"+wordWithMaxLength+", "+type+">");
+        return resultList;
+    } //work for AS.json, COL.json,
+
+    private String save(String state, StringBuilder word, StringBuilder finalWord, List<String> resultList) {
+        if (isCurrentStateFinal(state)) {
+            finalWord = word;
+        }
+        resultList.add(finalWord.toString());
+        word.delete(0, word.length());
+        finalWord.delete(0, finalWord.length());
+        return getOneCurrentState();
+    }
+
+    private String translator(char elem, LexemTypes type) {
+        if (type == LexemTypes.AS || type == LexemTypes.COL || type == LexemTypes.KW ||
+                type == LexemTypes.LB || type == LexemTypes.LC || type == LexemTypes.LOG ||
+                type == LexemTypes.LS || type == LexemTypes.NIL || type == LexemTypes.RB ||
+                type == LexemTypes.RC || type == LexemTypes.RS || type == LexemTypes.OP)
+            return String.valueOf(elem);
+        if (type == LexemTypes.ID) {
+            if (Character.isDigit(elem)) return "N";
+            if (Character.isLetter(elem)) return "L";
+            return "_";
+        }
+        if (type == LexemTypes.IN) {
+            if (Character.isDigit(elem)) return "N";
+            return null;
+        }
+        if (type == LexemTypes.RN) {
+            if (Character.isDigit(elem)) return "N";
+            if (elem == 'e' || elem == 'E') return "E";
+            if (elem == '+' || elem == '-') return "S";
+            if (elem == '.') return "D";
+        }
+        if (type == LexemTypes.COM) {
+            if (elem == '(') return "(";
+            if (elem == ')') return ")";
+            if (elem == '*') return "*";
+            return "content";
+        }
+        return null;
     }
 
 }

@@ -26,18 +26,7 @@
         {
           "signal": "}",
           "newSignal": [
-            "tmp"
-          ]
-        }
-      ]
-    },
-    {
-      "from": "tmp",
-      "to": [
-        {
-          "signal": "}",
-          "newSignal": [
-            "tmp"
+            "2"
           ]
         }
       ]
