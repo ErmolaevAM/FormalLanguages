@@ -239,7 +239,7 @@ public class UniversalAutoma {
 
     /*-----task three methods-----*/
 
-    public List<String> findLexems(String text, LexemTypes type) {
+    public int findLexems(String text, int index) {
         char[] textInChars = text.toCharArray();
         List<String> resultList = new ArrayList<>();
         String currentState = getOneCurrentState();
@@ -248,11 +248,37 @@ public class UniversalAutoma {
         StringBuilder word = new StringBuilder();
         StringBuilder finalWord = new StringBuilder();
 
-        for (int i = 0; i < textLength; i++) {
+        for (int i = index; i < textLength; i++) {
+            String tmp = "";
+            if (alphabet.contains(String.valueOf(textInChars[i]))) {
+                tmp = moveFunctions.get(currentState).get(translator(textInChars[i], type)).get(0); //new state
+                if (!"tmp".equals(tmp)) { //if new state is not 'tmp'
+                    word.append(textInChars[i]); //add one symbol to the current word
+                    if (isCurrentStateFinal(currentState)) { //if current state is final
+                        finalWord = word; //add current word to the final word
+                    }
+                    currentState = tmp; //change current state to the new non 'tmp' state
+                } else { //if new state is 'tmp'
+                    if (isCurrentStateFinal(currentState)) { //if current state is final
+                        finalWord = word; //add current word to the final word
+                        return finalWord.length();
+                    }
+                    word.delete(0, word.length()); //clear word
+                    finalWord.delete(0, finalWord.length()); //clear final word
+                    currentState = getOneCurrentState();
+                    return word.length();
+//                    resultList.add(finalWord.toString()); //save final word from last non 'tmp' state to the result list
+                }
+            } else {
+                return finalWord.length();
+            }
+        }
+        return finalWord.length();
+
+        /*for (int i = index; i < textLength; i++) {
             String tmp = "";
             if (!"".equals(textInChars[i])) {
                 if (alphabet.contains(String.valueOf(textInChars[i]))) {
-//                    tmp = moveFunctions.get(currentState).get(String.valueOf(textInChars[i])).get(0); //new state
                     tmp = moveFunctions.get(currentState).get(translator(textInChars[i], type)).get(0); //new state
                     if (!"tmp".equals(tmp)) { //if new state is not 'tmp'
                         word.append(textInChars[i]); //add one symbol to the current word
@@ -284,20 +310,8 @@ public class UniversalAutoma {
             resultList.add(word.toString());
             word.delete(0, word.length());
             finalWord.delete(0, finalWord.length());
-        }
+        }*/
 
-        int maxLength = 0;
-        String wordWithMaxLength = "";
-
-        for (String item : resultList) {
-            if (maxLength < item.length()) {
-                maxLength = item.length();
-                wordWithMaxLength = item;
-            }
-        }
-
-//        System.out.println("<"+wordWithMaxLength+", "+type+">");
-        return resultList;
     } //work for AS.json, COL.json,
 
     private String save(String state, StringBuilder word, StringBuilder finalWord, List<String> resultList) {
@@ -337,7 +351,17 @@ public class UniversalAutoma {
             if (elem == '*') return "*";
             return "content";
         }
+        if (type == LexemTypes.WS) {
+            if (elem == ' ') return "space";
+        }
         return null;
     }
 
+
+    @Override
+    public String toString() {
+        return "UniversalAutoma{" +
+                "type=" + type +
+                '}';
+    }
 }

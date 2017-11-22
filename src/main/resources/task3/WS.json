@@ -1,0 +1,35 @@
+{
+  "startStates": [
+    "1"
+  ],
+  "setOfFinalStates": [
+    "2"
+  ],
+  "alphabet": [
+    " "
+  ],
+  "moveFunctions": [
+    {
+      "from": "1",
+      "to": [
+        {
+          "signal": "space",
+          "newSignal": [
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "from": "2",
+      "to": [
+        {
+          "signal": "space",
+          "newSignal": [
+            "2"
+          ]
+        }
+      ]
+    }
+  ]
+}
