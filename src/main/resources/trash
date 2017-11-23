@@ -1,0 +1,36 @@
+/*for (int i = index; i < textLength; i++) {
+            String tmp = "";
+            if (!"".equals(textInChars[i])) {
+                if (alphabet.contains(String.valueOf(textInChars[i]))) {
+                    tmp = moveFunctions.get(currentState).get(translator(textInChars[i], type)).get(0); //new state
+                    if (!"tmp".equals(tmp)) { //if new state is not 'tmp'
+                        word.append(textInChars[i]); //add one symbol to the current word
+                        if (isCurrentStateFinal(currentState)) { //if current state is final
+                            finalWord = word; //add current word to the final word
+                        }
+                        currentState = tmp; //change current state to the new non 'tmp' state
+                    } else { //if new state is 'tmp'
+                        resultList.add(finalWord.toString()); //save final word from last non 'tmp' state to the result list
+                        word.delete(0, word.length()); //clear word
+                        finalWord.delete(0, finalWord.length()); //clear final word
+                        currentState = getOneCurrentState();
+                    }
+                } else if (!"".equals(finalWord.toString()) || !"".equals(word.toString())){ //if word/final word is not empty
+                    currentState = save(currentState, word, finalWord, resultList);
+                }
+            } else { //if new symbol from text is empty string
+                currentState = save(currentState, word, finalWord, resultList);
+            }
+        }
+
+        //add last word if
+        if (isCurrentStateFinal(currentState)) {
+            finalWord = word;
+            resultList.add(finalWord.toString());
+            word.delete(0, word.length());
+            finalWord.delete(0, finalWord.length());
+        } else {
+            resultList.add(word.toString());
+            word.delete(0, word.length());
+            finalWord.delete(0, finalWord.length());
+        }*/

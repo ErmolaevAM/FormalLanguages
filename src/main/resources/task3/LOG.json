@@ -375,7 +375,7 @@
         {
           "signal": "s",
           "newSignal": [
-            "6"
+            "9"
           ]
         }
       ]
@@ -434,7 +434,7 @@
       ]
     },
     {
-      "from": "tmp",
+      "from": "9",
       "to": [
         {
           "signal": "t",
@@ -457,7 +457,7 @@
         {
           "signal": "e",
           "newSignal": [
-            "tmp"
+            "8"
           ]
         },
         {

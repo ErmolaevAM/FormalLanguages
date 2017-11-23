@@ -6,7 +6,7 @@
     "4"
   ],
   "alphabet": [
-    "n", "i", "l"
+    "n", "i", "l", "N", "I", "L"
   ],
   "moveFunctions": [
     {
@@ -80,29 +80,6 @@
     },
     {
       "from": "4",
-      "to": [
-        {
-          "signal": "n",
-          "newSignal": [
-            "tmp"
-          ]
-        },
-        {
-          "signal": "i",
-          "newSignal": [
-            "tmp"
-          ]
-        },
-        {
-          "signal": "l",
-          "newSignal": [
-            "tmp"
-          ]
-        }
-      ]
-    },
-    {
-      "from": "tmp",
       "to": [
         {
           "signal": "n",

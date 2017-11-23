@@ -57,29 +57,6 @@
           ]
         }
       ]
-    },
-    {
-      "from": "tmp",
-      "to": [
-        {
-          "signal": "_",
-          "newSignal": [
-            "tmp"
-          ]
-        },
-        {
-          "signal": "L",
-          "newSignal": [
-            "tmp"
-          ]
-        },
-        {
-          "signal": "N",
-          "newSignal": [
-            "tmp"
-          ]
-        }
-      ]
     }
   ]
 }

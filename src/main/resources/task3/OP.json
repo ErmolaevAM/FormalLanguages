@@ -3,7 +3,7 @@
     "1"
   ],
   "setOfFinalStates": [
-    "2"
+    "2", "3", "4", "5"
   ],
   "alphabet": [
     "*", "/", "+", "-"
@@ -21,19 +21,19 @@
         {
           "signal": "/",
           "newSignal": [
-            "2"
+            "3"
           ]
         },
         {
           "signal": "+",
           "newSignal": [
-            "2"
+            "4"
           ]
         },
         {
           "signal": "-",
           "newSignal": [
-            "2"
+            "5"
           ]
         }
       ]
@@ -44,25 +44,112 @@
         {
           "signal": "*",
           "newSignal": [
-            "2"
+            "tmp"
           ]
         },
         {
           "signal": "/",
           "newSignal": [
-            "2"
+            "tmp"
           ]
         },
         {
           "signal": "+",
           "newSignal": [
-            "2"
+            "tmp"
           ]
         },
         {
           "signal": "-",
           "newSignal": [
-            "2"
+            "tmp"
+          ]
+        }
+      ]
+    },
+    {
+      "from": "3",
+      "to": [
+        {
+          "signal": "*",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "/",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "+",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "-",
+          "newSignal": [
+            "tmp"
+          ]
+        }
+      ]
+    },
+    {
+      "from": "4",
+      "to": [
+        {
+          "signal": "*",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "/",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "+",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "-",
+          "newSignal": [
+            "tmp"
+          ]
+        }
+      ]
+    },
+    {
+      "from": "5",
+      "to": [
+        {
+          "signal": "*",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "/",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "+",
+          "newSignal": [
+            "tmp"
+          ]
+        },
+        {
+          "signal": "-",
+          "newSignal": [
+            "tmp"
           ]
         }
       ]
