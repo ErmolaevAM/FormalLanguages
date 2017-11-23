@@ -1,7 +1,7 @@
+if (*important commentary*)
 if true then index + 10;
 else {
     if (array[k] == 14.42e-11) {
         return true or nil;
     }
 }
-(*important commentary*)
