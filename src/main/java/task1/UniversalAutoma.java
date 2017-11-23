@@ -251,7 +251,7 @@ public class UniversalAutoma {
         for (int i = index; i < textLength; i++) {
             String tmp = "";
             if (alphabet.contains(String.valueOf(textInChars[i]))) {
-                tmp = moveFunctions.get(currentState).get(translator(textInChars[i], type)).get(0); //new state
+                tmp = moveFunctions.get(currentState).get(translator(textInChars[i])).get(0); //new state
                 if (!"tmp".equals(tmp)) { //if new state is not 'tmp'
                     word.append(textInChars[i]); //add one symbol to the current word
                     if (isCurrentStateFinal(currentState)) { //if current state is final
@@ -274,62 +274,54 @@ public class UniversalAutoma {
             }
         }
         return finalWord.length();
-
-        /*for (int i = index; i < textLength; i++) {
-            String tmp = "";
-            if (!"".equals(textInChars[i])) {
-                if (alphabet.contains(String.valueOf(textInChars[i]))) {
-                    tmp = moveFunctions.get(currentState).get(translator(textInChars[i], type)).get(0); //new state
-                    if (!"tmp".equals(tmp)) { //if new state is not 'tmp'
-                        word.append(textInChars[i]); //add one symbol to the current word
-                        if (isCurrentStateFinal(currentState)) { //if current state is final
-                            finalWord = word; //add current word to the final word
-                        }
-                        currentState = tmp; //change current state to the new non 'tmp' state
-                    } else { //if new state is 'tmp'
-                        resultList.add(finalWord.toString()); //save final word from last non 'tmp' state to the result list
-                        word.delete(0, word.length()); //clear word
-                        finalWord.delete(0, finalWord.length()); //clear final word
-                        currentState = getOneCurrentState();
-                    }
-                } else if (!"".equals(finalWord.toString()) || !"".equals(word.toString())){ //if word/final word is not empty
-                    currentState = save(currentState, word, finalWord, resultList);
-                }
-            } else { //if new symbol from text is empty string
-                currentState = save(currentState, word, finalWord, resultList);
-            }
-        }
-
-        //add last word if
-        if (isCurrentStateFinal(currentState)) {
-            finalWord = word;
-            resultList.add(finalWord.toString());
-            word.delete(0, word.length());
-            finalWord.delete(0, finalWord.length());
-        } else {
-            resultList.add(word.toString());
-            word.delete(0, word.length());
-            finalWord.delete(0, finalWord.length());
-        }*/
-
-    } //work for AS.json, COL.json,
-
-    private String save(String state, StringBuilder word, StringBuilder finalWord, List<String> resultList) {
-        if (isCurrentStateFinal(state)) {
-            finalWord = word;
-        }
-        resultList.add(finalWord.toString());
-        word.delete(0, word.length());
-        finalWord.delete(0, finalWord.length());
-        return getOneCurrentState();
     }
 
-    private String translator(char elem, LexemTypes type) {
+    public int findLexemsVar2(String text, int index) {
+        char[] textInChars = text.toCharArray();
+        String currentState = getOneCurrentState();
+        int textLength = textInChars.length;
+
+        StringBuilder word = new StringBuilder();
+        StringBuilder finalWord = new StringBuilder();
+
+        for (int i = index; i < textLength; i++) {
+            String tmp = "";
+            if (alphabet.contains(String.valueOf(textInChars[i]))) {
+                tmp = moveFunctions.get(currentState).get(translator(textInChars[i])).get(0);
+                if (!"tmp".equals(tmp)) {
+                    word.append(textInChars[i]);
+                    if (isCurrentStateFinal(tmp)) {
+                        finalWord = word;
+                    }
+                    currentState = tmp;
+                } else {
+                    if (isCurrentStateFinal(currentState)) {
+                        finalWord = word;
+                    }
+                    return finalWord.length();
+                }
+            } else {
+                if (isCurrentStateFinal(currentState)) {
+                    finalWord = word;
+                }
+                return finalWord.length();
+            }
+        }
+        return finalWord.length();
+    } //work for AS.json, COL.json,
+
+
+    private String translator(char elem) {
         if (type == LexemTypes.AS || type == LexemTypes.COL || type == LexemTypes.KW ||
                 type == LexemTypes.LB || type == LexemTypes.LC || type == LexemTypes.LOG ||
-                type == LexemTypes.LS || type == LexemTypes.NIL || type == LexemTypes.RB ||
-                type == LexemTypes.RC || type == LexemTypes.RS || type == LexemTypes.OP)
+                type == LexemTypes.LS || type == LexemTypes.RB || type == LexemTypes.RC ||
+                type == LexemTypes.RS || type == LexemTypes.OP)
             return String.valueOf(elem);
+        if (type == LexemTypes.NIL) {
+            if (elem == 'n' || elem == 'N') return "n";
+            if (elem == 'i' || elem == 'I') return "i";
+            if (elem == 'l' || elem == 'L') return "l";
+        }
         if (type == LexemTypes.ID) {
             if (Character.isDigit(elem)) return "N";
             if (Character.isLetter(elem)) return "L";
