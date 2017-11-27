@@ -329,6 +329,7 @@ public class UniversalAutoma {
         }
         if (type == LexemTypes.IN) {
             if (Character.isDigit(elem)) return "N";
+            if (elem == '-' || elem == '+') return "S";
             return null;
         }
         if (type == LexemTypes.RN) {

@@ -1,4 +1,5 @@
 import task1.UniversalAutoma;
+import task4.TestParser;
 import utils.LexemTypes;
 
 import java.io.BufferedReader;
@@ -13,6 +14,7 @@ import java.util.*;
 public class Application {
     public static void main(String[] args) {
 
+        /*TASK 3*/
         String text = readFromFile("D:\\ermolaxe\\GitProject\\FormalLanguages\\src\\main\\resources\\task3\\text.txt");
 
         Map<Integer, UniversalAutoma> map = new LinkedHashMap<>();
@@ -36,6 +38,10 @@ public class Application {
 
         function(text, map);
         System.out.println(text);
+
+
+        /*TASK 4*/
+//        TestParser.parse("D:\\ermolaxe\\GitProject\\FormalLanguages\\src\\main\\resources\\task4\\com.txt");
     }
 
     public static String readFromFile(String path) {
