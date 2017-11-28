@@ -315,6 +315,7 @@ public class UniversalAutoma {
         if (type == LexemTypes.WS) {
             if (" ".equals(elem)) return "space";
             if ("\n".equals(elem)) return "space";
+            if ("\t".equals(elem)) return "space";
         }
         return null;
     }

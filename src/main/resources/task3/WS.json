@@ -6,7 +6,7 @@
     "2"
   ],
   "alphabet": [
-    " ", "\n"
+    " ", "\n", "\t"
   ],
   "moveFunctions": [
     {

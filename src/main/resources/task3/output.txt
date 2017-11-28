@@ -1,0 +1,49 @@
+<WS,\t>
+<COM,(*important commentary*)>
+<WS,\n\n \t\t  \n\t\n\t   \t\t>
+<KW,if>
+<WS, >
+<LOG,true>
+<WS, >
+<KW,then>
+<WS, >
+<ID,index>
+<WS, \n\t >
+<IN,+>
+<WS, >
+<IN,-10>
+<COL,;>
+<WS,\n\n\n\t>
+<KW,else>
+<WS, >
+<LC,{>
+<WS,\n    \n>
+<KW,if>
+<WS, >
+<LB,(>
+<ID,array>
+<LS,[>
+<ID,k>
+<RS,]>
+<WS, >
+<AS,=>
+<AS,=>
+<WS, >
+<RN,14.42e-11>
+<RB,)>
+<WS, \n>
+<LC,{>
+<WS,\n        \n\t\t>
+<ID,return>
+<WS, >
+<LOG,true>
+<WS, >
+<ID,or>
+<WS, >
+<NIL,nil>
+<COL,;>
+<WS,\n    \n\t\t>
+<RC,}>
+<WS,\n>
+<RC,}>
+<WS,\n>
