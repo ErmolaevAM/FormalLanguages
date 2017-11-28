@@ -200,9 +200,9 @@ public class UniversalAutoma {
     }
 
     private void cleanNumber(StringBuilder number) {
-        if (number.toString().toCharArray()[number.length()-1]=='e' || number.toString().toCharArray()[number.length()-1]=='E') {
-            while (number.toString().toCharArray()[number.length()-1]=='e' || number.toString().toCharArray()[number.length()-1]=='E') {
-                number.delete(number.length()-1, number.length());
+        if (number.toString().toCharArray()[number.length() - 1] == 'e' || number.toString().toCharArray()[number.length() - 1] == 'E') {
+            while (number.toString().toCharArray()[number.length() - 1] == 'e' || number.toString().toCharArray()[number.length() - 1] == 'E') {
+                number.delete(number.length() - 1, number.length());
             }
         }
     }
@@ -226,7 +226,7 @@ public class UniversalAutoma {
 
     public void returnMaxNumberLength(String word, int index) {
         List<String> numbers = taskTwoStart(word, index);
-        String maxWord= "";
+        String maxWord = "";
         int maxLength = 0;
         for (int i = 0; i < numbers.size(); i++) {
             if (numbers.get(i).length() > maxLength) {
@@ -234,47 +234,10 @@ public class UniversalAutoma {
                 maxLength = maxWord.length();
             }
         }
-        System.out.println("<"+maxWord+";"+maxLength+">");
+        System.out.println("<" + maxWord + ";" + maxLength + ">");
     }
 
     /*-----task three methods-----*/
-
-    public int findLexems(String text, int index) {
-        char[] textInChars = text.toCharArray();
-        List<String> resultList = new ArrayList<>();
-        String currentState = getOneCurrentState();
-        int textLength = textInChars.length;
-
-        StringBuilder word = new StringBuilder();
-        StringBuilder finalWord = new StringBuilder();
-
-        for (int i = index; i < textLength; i++) {
-            String tmp = "";
-            if (alphabet.contains(String.valueOf(textInChars[i]))) {
-                tmp = moveFunctions.get(currentState).get(translator(textInChars[i])).get(0); //new state
-                if (!"tmp".equals(tmp)) { //if new state is not 'tmp'
-                    word.append(textInChars[i]); //add one symbol to the current word
-                    if (isCurrentStateFinal(currentState)) { //if current state is final
-                        finalWord = word; //add current word to the final word
-                    }
-                    currentState = tmp; //change current state to the new non 'tmp' state
-                } else { //if new state is 'tmp'
-                    if (isCurrentStateFinal(currentState)) { //if current state is final
-                        finalWord = word; //add current word to the final word
-                        return finalWord.length();
-                    }
-                    word.delete(0, word.length()); //clear word
-                    finalWord.delete(0, finalWord.length()); //clear final word
-                    currentState = getOneCurrentState();
-                    return word.length();
-//                    resultList.add(finalWord.toString()); //save final word from last non 'tmp' state to the result list
-                }
-            } else {
-                return finalWord.length();
-            }
-        }
-        return finalWord.length();
-    }
 
     public int findLexemsVar2(String text, int index) {
         char[] textInChars = text.toCharArray();
@@ -286,8 +249,13 @@ public class UniversalAutoma {
 
         for (int i = index; i < textLength; i++) {
             String tmp = "";
-            if (alphabet.contains(String.valueOf(textInChars[i]))) {
-                tmp = moveFunctions.get(currentState).get(translator(textInChars[i])).get(0);
+            String symbol = String.valueOf(textInChars[i]);
+            if (textInChars[i] == '\\') {
+                symbol += textInChars[i + 1];
+                i++;
+            }
+            if (alphabet.contains(symbol)) {
+                tmp = moveFunctions.get(currentState).get(translator(symbol)).get(0);
                 if (!"tmp".equals(tmp)) {
                     word.append(textInChars[i]);
                     if (isCurrentStateFinal(tmp)) {
@@ -311,41 +279,42 @@ public class UniversalAutoma {
     } //work for AS.json, COL.json,
 
 
-    private String translator(char elem) {
+    private String translator(String elem) {
         if (type == LexemTypes.AS || type == LexemTypes.COL || type == LexemTypes.KW ||
                 type == LexemTypes.LB || type == LexemTypes.LC || type == LexemTypes.LOG ||
                 type == LexemTypes.LS || type == LexemTypes.RB || type == LexemTypes.RC ||
                 type == LexemTypes.RS || type == LexemTypes.OP)
             return String.valueOf(elem);
         if (type == LexemTypes.NIL) {
-            if (elem == 'n' || elem == 'N') return "n";
-            if (elem == 'i' || elem == 'I') return "i";
-            if (elem == 'l' || elem == 'L') return "l";
+            if ("n".equals(elem) || "N".equals(elem)) return "n";
+            if ("i".equals(elem) || "I".equals(elem)) return "i";
+            if ("l".equals(elem) || "L".equals(elem)) return "l";
         }
         if (type == LexemTypes.ID) {
-            if (Character.isDigit(elem)) return "N";
-            if (Character.isLetter(elem)) return "L";
+            if (Character.isDigit(elem.toCharArray()[0])) return "N";
+            if (Character.isLetter(elem.toCharArray()[0])) return "L";
             return "_";
         }
         if (type == LexemTypes.IN) {
-            if (Character.isDigit(elem)) return "N";
-            if (elem == '-' || elem == '+') return "S";
+            if (Character.isDigit(elem.toCharArray()[0])) return "N";
+            if ("-".equals(elem) || "+".equals(elem)) return "S";
             return null;
         }
         if (type == LexemTypes.RN) {
-            if (Character.isDigit(elem)) return "N";
-            if (elem == 'e' || elem == 'E') return "E";
-            if (elem == '+' || elem == '-') return "S";
-            if (elem == '.') return "D";
+            if (Character.isDigit(elem.toCharArray()[0])) return "N";
+            if ("e".equals(elem) || "E".equals(elem)) return "E";
+            if ("+".equals(elem) || "-".equals(elem)) return "S";
+            if (".".equals(elem)) return "D";
         }
         if (type == LexemTypes.COM) {
-            if (elem == '(') return "(";
-            if (elem == ')') return ")";
-            if (elem == '*') return "*";
+            if ("(".equals(elem)) return "(";
+            if (")".equals(elem)) return ")";
+            if ("*".equals(elem)) return "*";
             return "content";
         }
         if (type == LexemTypes.WS) {
-            if (elem == ' ') return "space";
+            if (" ".equals(elem)) return "space";
+            if ("\n".equals(elem)) return "space";
         }
         return null;
     }

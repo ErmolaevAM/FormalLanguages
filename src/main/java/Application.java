@@ -1,12 +1,13 @@
 import task1.UniversalAutoma;
-import task4.TestParser;
 import utils.LexemTypes;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Александр on 06.09.2017.
@@ -49,7 +50,7 @@ public class Application {
         try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
             String line = "";
             while ((line = reader.readLine()) != null) {
-                line = line + " ";
+                line = line + "\n";
                 text.append(line);
             }
         } catch (IOException e) {
@@ -60,10 +61,10 @@ public class Application {
 
     public static void function(String text, Map<Integer, UniversalAutoma> automaMap) {
 
-        for (int i = 0; i < text.length();) {
+        for (int i = 0; i < text.length(); ) {
             List<Integer> lenList = new ArrayList<>();
 
-            for (UniversalAutoma automa: automaMap.values()) {
+            for (UniversalAutoma automa : automaMap.values()) {
                 lenList.add(automa.findLexemsVar2(text, i));
             }
 
@@ -80,7 +81,7 @@ public class Application {
             if (maxLen == 0) {
                 i++;
             } else {
-                System.out.println("<"+automaMap.get(index+1).getType()+","+text.substring(i, i+maxLen)+">");
+                System.out.println("<" + automaMap.get(index + 1).getType() + "," + text.substring(i, i + maxLen) + ">");
                 i += maxLen;
             }
         }
